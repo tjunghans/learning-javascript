@@ -15,8 +15,39 @@ describe('Array', function(){
   		return a + b;
   	}
 
-    it('[1, 2, 3] should return 6 with add', function(){
+  	var complexArray = [
+  		{
+  			value : 1
+  		},
+  		{
+  			value : 2
+  		},
+  		{
+  			value : 3
+  		}
+  	];
+
+  	var complexAdder = function (a, b) {
+  		return { value: a.value + b.value };
+  	};
+
+  	var complexAdder2 = function (a, b) {
+  		return a + b.value;
+  	};
+
+    it('sums up array values', function(){
       assert.equal(6, [1,2,3].reduce(adder, 0));
+      assert.equal(6, [1,2,3].reduce(adder));
+      assert.equal(7, [1,2,3].reduce(adder, 1));
     });
+
+    it('adds value of object property in array item', function(){
+      assert.equal({ value : 6 }.value, complexArray.reduce(complexAdder, { value : 0 } ).value);
+      assert.equal(6, complexArray.reduce(complexAdder2, 0));
+    });
+
+    
+
+    
   });
 });
