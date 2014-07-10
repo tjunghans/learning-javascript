@@ -9,7 +9,53 @@ describe('Array', function(){
     });
   });
 
-  describe('#reduce()', function(){
+  describe('#isArray()', function(){
+    it('returns true if array', function(){
+      assert.equal(true, Array.isArray([]));
+      assert.equal(true, Array.isArray(new Array()));
+      assert.equal(false, Array.isArray({}));
+    });
+  });
+
+  describe('#Array.prototype.constructor', function(){
+    it('returns Array', function(){
+      assert.equal(Array, [].constructor);
+
+    });
+  });
+
+  describe('#Array.prototype.fill()', function(){
+    it('fills', function(){
+      assert.equal([4, 4, 4], [1, 2, 3].fill(4)); // Only works in firefox
+    });
+  });
+
+  describe('#Array.prototype.pop()', function(){
+    it('removes the last item in array and returns it', function(){
+
+   		var array1 = [1, 2, 3];
+
+      assert.equal(3, array1.pop());
+      assert.deepEqual([1, 2], array1);
+    });
+
+    it('returns undefined if pop is used on empty array', function(){
+      assert.equal(undefined, [].pop());
+    });
+  });
+
+  describe('#Array.prototype.push()', function(){
+    it('adds new item to array and returns newly added item', function(){
+    	var array1 = [1, 2, 3];
+
+      assert.equal(4, array1.push(4));
+      assert.deepEqual([1, 2, 3, 4], array1);
+    });
+  });
+
+
+
+  describe('#Array.prototype.reduce()', function(){
 
   	var adder = function (a, b) {
   		return a + b;
@@ -45,9 +91,21 @@ describe('Array', function(){
       assert.equal({ value : 6 }.value, complexArray.reduce(complexAdder, { value : 0 } ).value);
       assert.equal(6, complexArray.reduce(complexAdder2, 0));
     });
-
     
+  });
 
-    
+  describe('#Array.prototype.reverse()', function(){
+    it('It reverses items in array', function(){
+      assert.deepEqual([3, 2, 1], [1, 2, 3].reverse());
+    });
+  });
+
+  describe('#Array.prototype.shift()', function(){
+    it('It removes first item from array', function(){
+    	var array1 = [1, 2, 3];
+
+      assert.equal(1, array1.shift());
+      assert.deepEqual([2, 3], array1);
+    });
   });
 });
