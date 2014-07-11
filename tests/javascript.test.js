@@ -161,5 +161,19 @@ describe('Array', function(){
     	}));
       
     });
+
+    describe('#Array.prototype.splice()', function(){
+    it('It removes one item', function(){
+    	var myFish = ["angel", "clown", "mandarin", "surgeon"];
+
+      assert.deepEqual(["clown", "mandarin"], 
+      	myFish.splice(1, 2, 'white shark', 'hammerhead'));
+
+      assert.deepEqual(["angel", "white shark", "hammerhead", "surgeon"], myFish);
+
+      assert.deepEqual(["angel"], myFish.splice(0, 1));
+   
+    });
+  });
   });
 });
