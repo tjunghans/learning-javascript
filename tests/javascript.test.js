@@ -108,4 +108,58 @@ describe('Array', function(){
       assert.deepEqual([2, 3], array1);
     });
   });
+
+  describe('#Array.prototype.sort()', function(){
+    it('It sorts array', function(){
+    	var array1 = ['c', 'a', 'b', 'ab', 'aa'];
+    	var array2 = [
+    		{
+    			value : 'c'
+    		},
+    		{
+    			value : 'a'
+    		},
+    		{
+    			value : 'b'
+    		}
+    	];
+
+    	var sortDesc = function (a, b) {
+    		if (a < b) {
+    			return 1;
+    		}
+
+    		if (a > b) {
+    			return -1;
+    		}
+
+    		return 0;
+    	}
+
+      assert.deepEqual(['a', 'aa', 'ab', 'b', 'c'], array1.sort());
+      assert.deepEqual(['c', 'b', 'ab', 'aa', 'a'], array1.sort(sortDesc));
+      assert.deepEqual([
+    		{
+    			value : 'a'
+    		},
+    		{
+    			value : 'b'
+    		},
+    		{
+    			value : 'c'
+    		}
+    	], array2.sort(function (a, b) {
+    		if (a.value > b.value) {
+    			return 1;
+    		}
+
+    		if (a.value < b.value) {
+    			return -1;
+    		}
+
+    		return 0;
+    	}));
+      
+    });
+  });
 });
