@@ -163,17 +163,28 @@ describe('Array', function(){
     });
 
     describe('#Array.prototype.splice()', function(){
-    it('It removes one item', function(){
-    	var myFish = ["angel", "clown", "mandarin", "surgeon"];
+	    it('It removes one item', function(){
+	    	var myFish = ["angel", "clown", "mandarin", "surgeon"];
 
-      assert.deepEqual(["clown", "mandarin"], 
-      	myFish.splice(1, 2, 'white shark', 'hammerhead'));
+	      assert.deepEqual(["clown", "mandarin"], 
+	      	myFish.splice(1, 2, 'white shark', 'hammerhead'));
 
-      assert.deepEqual(["angel", "white shark", "hammerhead", "surgeon"], myFish);
+	      assert.deepEqual(["angel", "white shark", "hammerhead", "surgeon"], myFish);
 
-      assert.deepEqual(["angel"], myFish.splice(0, 1));
-   
-    });
-  });
+	      assert.deepEqual(["angel"], myFish.splice(0, 1));
+	   
+	    });
+  	});
+
+  	describe('#Array.prototype.unshift()', function(){
+	    it('It prepends an item', function(){
+	    	var array1 = [1, 2];
+
+	      assert.equal(3, array1.unshift(0));
+	      assert.deepEqual(array1, [0, 1, 2]);
+	   
+	    });
+  	
+  	});
   });
 });
