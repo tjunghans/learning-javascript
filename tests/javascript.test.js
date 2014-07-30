@@ -25,13 +25,13 @@ describe('Array', function() {
 
     });
   });
-
+/*
   describe('#Array.prototype.fill()', function() {
     it('fills', function() {
       assert.equal([4, 4, 4], [1, 2, 3].fill(4)); // Only works in firefox
     });
   });
-
+*/
   describe('#Array.prototype.pop()', function() {
     it('removes the last item in array and returns it', function() {
 
@@ -185,6 +185,23 @@ describe('Array', function() {
 
       assert.equal(3, array1.unshift(0));
       assert.deepEqual(array1, [0, 1, 2]);
+    });
+  });
+
+  // inherited
+  describe('#Array.prototype.toString()', function() {
+    it('output array contents as string', function() {
+      var array = [1, 2, 'foo', { 'bar' : 'baz'}, null, undefined, [3, 4]];
+
+      assert.equal(array.toString(), '1,2,foo,[object Object],,,3,4');
+    });
+  });
+
+  describe('#Array.prototype.valueOf()', function() {
+    it('output array value', function() {
+      var array = [1, 2, 'foo', { 'bar' : 'baz'}, null, undefined, [3, 4]];
+
+      assert.equal(array.valueOf(), '1,2,foo,[object Object],,,3,4');
     });
   });
 });
