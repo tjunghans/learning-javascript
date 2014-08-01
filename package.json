@@ -1,28 +1,26 @@
 {
-  "name": "learning-javascript",
-  "version": "0.0.0",
-  "description": "A project containing unit tests to aid in learning more about JavaScript",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm run mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tjunghans/learning-javascript.git"
-  },
-  "author": "Thomas Junghans <thomas.junghans@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tjunghans/learning-javascript/issues"
-  },
-  "homepage": "https://github.com/tjunghans/learning-javascript",
-  "devDependencies" : {
-    "mocha" : "^1.2.0"
-  },
-  "engines": {
-    "node": ">=0.6.21"
-  },
-  "scripts" : {
-    "test" : "make test"
-  }
+    "name": "learning-javascript",
+    "version": "0.0.0",
+    "description": "A project containing unit tests to aid in learning more about JavaScript",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha  -c -R spec ./tests",
+        "watch-test": "mocha  -c -w -R spec ./tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tjunghans/learning-javascript.git"
+    },
+    "author": "Thomas Junghans <thomas.junghans@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tjunghans/learning-javascript/issues"
+    },
+    "homepage": "https://github.com/tjunghans/learning-javascript",
+    "devDependencies": {
+        "mocha": "^1.2.0"
+    },
+    "engines": {
+        "node": ">=0.6.21"
+    }
 }
