@@ -52,6 +52,10 @@ describe('BuiltIns and globals', function() {
             assert.equal(isNaN('foo'), true);
             assert.equal(isNaN(null), false);
             assert.equal(isNaN(undefined), true);
+            assert.equal(isNaN('one'), true);
+            assert.equal(isNaN('1'), false);
+            assert.equal(isNaN(1 / 0), false);
+            assert.equal(isNaN(Infinity), false);
         });
     });
 });
