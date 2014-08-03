@@ -38,6 +38,14 @@ describe('BuiltIns and globals', function() {
     describe('parseFloat', function() {
         it('converts number to float', function() {
             assert.equal(parseFloat('4.9'), 4.9);
+            assert.equal(parseFloat('4.49'), 4.49);
+            assert.equal(parseFloat('1'), 1);
+        });
+    });
+
+    describe('isNaN', function() {
+        it('should not be a number', function() {
+            assert.equal(isNaN('foo'), true);
 
         });
     });
