@@ -26,6 +26,10 @@ describe('BuiltIns and globals', function() {
             assert.equal(eval(obj[echo]), 'charlie');
             assert.equal(eval('obj[echo]'), 'bravo');
         });
+
+        it('evaluates Number(null) to 0', function() {
+            assert.equal(eval(Number(null)), 0);
+        });
     });
     describe('parseInt', function() {
         it('converts number to integer', function() {
@@ -46,7 +50,8 @@ describe('BuiltIns and globals', function() {
     describe('isNaN', function() {
         it('should not be a number', function() {
             assert.equal(isNaN('foo'), true);
-
+            assert.equal(isNaN(null), false);
+            assert.equal(isNaN(undefined), true);
         });
     });
 });
