@@ -20,5 +20,13 @@ describe('Math', function() {
 
         });
     });
+    
+    describe('.floor()', function() {
+        it('rounds number down to nearest int', function() {
+            assert.equal(Math.floor(0.5), 0);
+            assert.equal(Math.floor(0.99), 0);
+
+        });
+    });
 
 });
