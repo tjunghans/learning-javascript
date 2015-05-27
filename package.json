@@ -4,8 +4,11 @@
     "description": "A project containing unit tests to aid in learning more about JavaScript",
     "main": "index.js",
     "scripts": {
-        "test": "mocha  -c -R spec ./tests",
-        "watch-test": "mocha  -c -w -R spec ./tests"
+        "test:browser": "mochify",
+        "watch:browser": "npm run test:browser -- --watch",
+        "lint": "jslint --color \"**/*.js\"",
+        "pretest": "npm run lint",
+        "test": "npm run test:browser"
     },
     "repository": {
         "type": "git",
@@ -18,7 +21,8 @@
     },
     "homepage": "https://github.com/tjunghans/learning-javascript",
     "devDependencies": {
-        "mocha": "^1.2.0"
+        "mochify": "^2.0",
+        "jslint": "^0.8"
     },
     "engines": {
         "node": ">=0.6.21"

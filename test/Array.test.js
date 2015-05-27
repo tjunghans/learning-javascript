@@ -3,37 +3,37 @@
 
 var assert = require("assert");
 
-describe('Array', function() {
+describe('Array', function () {
 
-  describe('#indexOf()', function() {
-    it('return -1 when the value is not present', function() {
+  describe('indexOf()', function () {
+    it('return -1 when the value is not present', function () {
       assert.equal(-1, [1, 2, 3].indexOf(5));
       assert.equal(-1, [1, 2, 3].indexOf(0));
     });
   });
 
-  describe('#isArray()', function() {
-    it('returns true if array', function() {
+  describe('isArray()', function () {
+    it('returns true if array', function () {
       assert.equal(true, Array.isArray([]));
       assert.equal(false, Array.isArray({}));
     });
   });
 
-  describe('#Array.prototype.constructor', function() {
-    it('returns Array', function() {
+  describe('Array.prototype.constructor', function () {
+    it('returns Array', function () {
       assert.equal(Array, [].constructor);
 
     });
   });
 /*
-  describe('#Array.prototype.fill()', function() {
-    it('fills', function() {
+  describe('#Array.prototype.fill()', function () {
+    it('fills', function () {
       assert.equal([4, 4, 4], [1, 2, 3].fill(4)); // Only works in firefox
     });
   });
 */
-  describe('#Array.prototype.pop()', function() {
-    it('removes the last item in array and returns it', function() {
+  describe('Array.prototype.pop()', function () {
+    it('removes the last item in array and returns it', function () {
 
       var array1 = [1, 2, 3];
 
@@ -41,13 +41,13 @@ describe('Array', function() {
       assert.deepEqual([1, 2], array1);
     });
 
-    it('returns undefined if pop is used on empty array', function() {
+    it('returns undefined if pop is used on empty array', function () {
       assert.equal(undefined, [].pop());
     });
   });
 
-  describe('#Array.prototype.push()', function() {
-    it('adds new item to array and returns newly added item', function() {
+  describe('Array.prototype.push()', function () {
+    it('adds new item to array and returns newly added item', function () {
       var array1 = [1, 2, 3];
 
       assert.equal(4, array1.push(4));
@@ -57,7 +57,7 @@ describe('Array', function() {
 
 
 
-  describe('#Array.prototype.reduce()', function() {
+  describe('Array.prototype.reduce()', function () {
 
     var adder = function (a, b) {
       return a + b;
@@ -83,27 +83,27 @@ describe('Array', function() {
       return a + b.value;
     };
 
-    it('sums up array values', function() {
+    it('sums up array values', function () {
       assert.equal(6, [1, 2, 3].reduce(adder, 0));
       assert.equal(6, [1, 2, 3].reduce(adder));
       assert.equal(7, [1, 2, 3].reduce(adder, 1));
     });
 
-    it('adds value of object property in array item', function() {
+    it('adds value of object property in array item', function () {
       assert.equal({value : 6}.value,
         complexArray.reduce(complexAdder, { value : 0 }).value);
       assert.equal(6, complexArray.reduce(complexAdder2, 0));
     });
   });
 
-  describe('#Array.prototype.reverse()', function() {
-    it('It reverses items in array', function() {
+  describe('Array.prototype.reverse()', function () {
+    it('It reverses items in array', function () {
       assert.deepEqual([3, 2, 1], [1, 2, 3].reverse());
     });
   });
 
-  describe('#Array.prototype.shift()', function() {
-    it('It removes first item from array', function() {
+  describe('Array.prototype.shift()', function () {
+    it('It removes first item from array', function () {
       var array1 = [1, 2, 3];
 
       assert.equal(1, array1.shift());
@@ -111,8 +111,8 @@ describe('Array', function() {
     });
   });
 
-  describe('#Array.prototype.sort()', function() {
-    it('It sorts array', function() {
+  describe('Array.prototype.sort()', function () {
+    it('It sorts array', function () {
       var array1 = ['c', 'a', 'b', 'ab', 'aa'];
       var array2 = [
         {
@@ -163,8 +163,8 @@ describe('Array', function() {
       }));
     });
   });
-  describe('#Array.prototype.splice()', function() {
-    it('It removes one item', function() {
+  describe('Array.prototype.splice()', function () {
+    it('It removes one item', function () {
       var myFish = ["angel", "clown", "mandarin", "surgeon"];
 
       assert.deepEqual(["clown", "mandarin"],
@@ -179,8 +179,8 @@ describe('Array', function() {
     });
   });
 
-  describe('#Array.prototype.unshift()', function() {
-    it('It prepends an item', function() {
+  describe('Array.prototype.unshift()', function () {
+    it('It prepends an item', function () {
       var array1 = [1, 2];
 
       assert.equal(3, array1.unshift(0));
@@ -189,16 +189,16 @@ describe('Array', function() {
   });
 
   // inherited
-  describe('#Array.prototype.toString()', function() {
-    it('output array contents as string', function() {
+  describe('Array.prototype.toString()', function () {
+    it('output array contents as string', function () {
       var array = [1, 2, 'foo', { 'bar' : 'baz'}, null, undefined, [3, 4]];
 
       assert.equal(array.toString(), '1,2,foo,[object Object],,,3,4');
     });
   });
 
-  describe('#Array.prototype.valueOf()', function() {
-    it('output array value', function() {
+  describe('Array.prototype.valueOf()', function () {
+    it('output array value', function () {
       var array = [1, 2, 'foo', { 'bar' : 'baz'}, null, undefined, [3, 4]];
 
       assert.equal(array.valueOf(), '1,2,foo,[object Object],,,3,4');
