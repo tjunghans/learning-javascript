@@ -22,7 +22,8 @@
     "homepage": "https://github.com/tjunghans/learning-javascript",
     "devDependencies": {
         "mochify": "^2.0",
-        "jslint": "^0.8"
+        "jslint": "^0.8",
+        "sinon": "^1.14"
     },
     "engines": {
         "node": ">=0.6.21"
